@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7EB535531B81769100094E65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535521B81769100094E65 /* main.m */; };
+		7EB535561B81769100094E65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535551B81769100094E65 /* AppDelegate.m */; };
+		7EB535591B81769100094E65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535581B81769100094E65 /* ViewController.m */; };
+		7EB5355C1B81769100094E65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EB5355A1B81769100094E65 /* Main.storyboard */; };
+		7EB5355E1B81769100094E65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EB5355D1B81769100094E65 /* Images.xcassets */; };
+		7EB535611B81769100094E65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB5355F1B81769100094E65 /* LaunchScreen.xib */; };
+		7EB5356D1B81769100094E65 /* HRPlacePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5356C1B81769100094E65 /* HRPlacePickerTests.m */; };
+		7EB535781B8176B100094E65 /* HRLocationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535771B8176B100094E65 /* HRLocationPicker.m */; };
+		7EB535851B8177F800094E65 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5357B1B8177F800094E65 /* FMDatabase.m */; };
+		7EB535861B8177F800094E65 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5357D1B8177F800094E65 /* FMDatabaseAdditions.m */; };
+		7EB535871B8177F800094E65 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5357F1B8177F800094E65 /* FMDatabasePool.m */; };
+		7EB535881B8177F800094E65 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535811B8177F800094E65 /* FMDatabaseQueue.m */; };
+		7EB535891B8177F800094E65 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535841B8177F800094E65 /* FMResultSet.m */; };
+		7EB5358F1B81781B00094E65 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5358B1B81781B00094E65 /* FMDatabase+FTS3.m */; };
+		7EB535901B81781B00094E65 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5358D1B81781B00094E65 /* FMTokenizers.m */; };
+		7EB535931B81782600094E65 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535921B81782600094E65 /* FMDatabase+InMemoryOnDiskIO.m */; };
+		7EB535961B817ABB00094E65 /* HRLocationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB535951B817ABB00094E65 /* HRLocationItem.m */; };
+		7EB535991B81A49200094E65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB535981B81A49200094E65 /* libsqlite3.dylib */; };
+		7EB5359A1B81A50D00094E65 /* location.db in Resources */ = {isa = PBXBuildFile; fileRef = 7EB535971B81A11300094E65 /* location.db */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7EB535671B81769100094E65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EB535451B81769100094E65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EB5354C1B81769100094E65;
+			remoteInfo = HRPlacePicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7EB5354D1B81769100094E65 /* HRPlacePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRPlacePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EB535511B81769100094E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EB535521B81769100094E65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7EB535541B81769100094E65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7EB535551B81769100094E65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7EB535571B81769100094E65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7EB535581B81769100094E65 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7EB5355B1B81769100094E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7EB5355D1B81769100094E65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7EB535601B81769100094E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7EB535661B81769100094E65 /* HRPlacePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRPlacePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EB5356B1B81769100094E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EB5356C1B81769100094E65 /* HRPlacePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRPlacePickerTests.m; sourceTree = "<group>"; };
+		7EB535761B8176B100094E65 /* HRLocationPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLocationPicker.h; sourceTree = "<group>"; };
+		7EB535771B8176B100094E65 /* HRLocationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRLocationPicker.m; sourceTree = "<group>"; };
+		7EB5357A1B8177F800094E65 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		7EB5357B1B8177F800094E65 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		7EB5357C1B8177F800094E65 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		7EB5357D1B8177F800094E65 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		7EB5357E1B8177F800094E65 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		7EB5357F1B8177F800094E65 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		7EB535801B8177F800094E65 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		7EB535811B8177F800094E65 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		7EB535821B8177F800094E65 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		7EB535831B8177F800094E65 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		7EB535841B8177F800094E65 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		7EB5358A1B81781B00094E65 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
+		7EB5358B1B81781B00094E65 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
+		7EB5358C1B81781B00094E65 /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
+		7EB5358D1B81781B00094E65 /* FMTokenizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMTokenizers.m; sourceTree = "<group>"; };
+		7EB5358E1B81781B00094E65 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
+		7EB535911B81782600094E65 /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
+		7EB535921B81782600094E65 /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
+		7EB535941B817ABB00094E65 /* HRLocationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLocationItem.h; sourceTree = "<group>"; };
+		7EB535951B817ABB00094E65 /* HRLocationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRLocationItem.m; sourceTree = "<group>"; };
+		7EB535971B81A11300094E65 /* location.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = location.db; sourceTree = "<group>"; };
+		7EB535981B81A49200094E65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7EB5354A1B81769100094E65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB535991B81A49200094E65 /* libsqlite3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB535631B81769100094E65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7EB535441B81769100094E65 = {
+			isa = PBXGroup;
+			children = (
+				7EB535981B81A49200094E65 /* libsqlite3.dylib */,
+				7EB5354F1B81769100094E65 /* HRPlacePicker */,
+				7EB535691B81769100094E65 /* HRPlacePickerTests */,
+				7EB5354E1B81769100094E65 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7EB5354E1B81769100094E65 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5354D1B81769100094E65 /* HRPlacePicker.app */,
+				7EB535661B81769100094E65 /* HRPlacePickerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EB5354F1B81769100094E65 /* HRPlacePicker */ = {
+			isa = PBXGroup;
+			children = (
+				7EB535791B8177F800094E65 /* fmdb */,
+				7EB535541B81769100094E65 /* AppDelegate.h */,
+				7EB535551B81769100094E65 /* AppDelegate.m */,
+				7EB535571B81769100094E65 /* ViewController.h */,
+				7EB535581B81769100094E65 /* ViewController.m */,
+				7EB5355A1B81769100094E65 /* Main.storyboard */,
+				7EB5355D1B81769100094E65 /* Images.xcassets */,
+				7EB5355F1B81769100094E65 /* LaunchScreen.xib */,
+				7EB535501B81769100094E65 /* Supporting Files */,
+				7EB535761B8176B100094E65 /* HRLocationPicker.h */,
+				7EB535771B8176B100094E65 /* HRLocationPicker.m */,
+				7EB535941B817ABB00094E65 /* HRLocationItem.h */,
+				7EB535951B817ABB00094E65 /* HRLocationItem.m */,
+			);
+			path = HRPlacePicker;
+			sourceTree = "<group>";
+		};
+		7EB535501B81769100094E65 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EB535971B81A11300094E65 /* location.db */,
+				7EB535511B81769100094E65 /* Info.plist */,
+				7EB535521B81769100094E65 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EB535691B81769100094E65 /* HRPlacePickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5356C1B81769100094E65 /* HRPlacePickerTests.m */,
+				7EB5356A1B81769100094E65 /* Supporting Files */,
+			);
+			path = HRPlacePickerTests;
+			sourceTree = "<group>";
+		};
+		7EB5356A1B81769100094E65 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5356B1B81769100094E65 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EB535791B8177F800094E65 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				7EB535911B81782600094E65 /* FMDatabase+InMemoryOnDiskIO.h */,
+				7EB535921B81782600094E65 /* FMDatabase+InMemoryOnDiskIO.m */,
+				7EB5358A1B81781B00094E65 /* FMDatabase+FTS3.h */,
+				7EB5358B1B81781B00094E65 /* FMDatabase+FTS3.m */,
+				7EB5358C1B81781B00094E65 /* FMTokenizers.h */,
+				7EB5358D1B81781B00094E65 /* FMTokenizers.m */,
+				7EB5358E1B81781B00094E65 /* fts3_tokenizer.h */,
+				7EB5357A1B8177F800094E65 /* FMDatabase.h */,
+				7EB5357B1B8177F800094E65 /* FMDatabase.m */,
+				7EB5357C1B8177F800094E65 /* FMDatabaseAdditions.h */,
+				7EB5357D1B8177F800094E65 /* FMDatabaseAdditions.m */,
+				7EB5357E1B8177F800094E65 /* FMDatabasePool.h */,
+				7EB5357F1B8177F800094E65 /* FMDatabasePool.m */,
+				7EB535801B8177F800094E65 /* FMDatabaseQueue.h */,
+				7EB535811B8177F800094E65 /* FMDatabaseQueue.m */,
+				7EB535821B8177F800094E65 /* FMDB.h */,
+				7EB535831B8177F800094E65 /* FMResultSet.h */,
+				7EB535841B8177F800094E65 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7EB5354C1B81769100094E65 /* HRPlacePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EB535701B81769100094E65 /* Build configuration list for PBXNativeTarget "HRPlacePicker" */;
+			buildPhases = (
+				7EB535491B81769100094E65 /* Sources */,
+				7EB5354A1B81769100094E65 /* Frameworks */,
+				7EB5354B1B81769100094E65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HRPlacePicker;
+			productName = HRPlacePicker;
+			productReference = 7EB5354D1B81769100094E65 /* HRPlacePicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7EB535651B81769100094E65 /* HRPlacePickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EB535731B81769100094E65 /* Build configuration list for PBXNativeTarget "HRPlacePickerTests" */;
+			buildPhases = (
+				7EB535621B81769100094E65 /* Sources */,
+				7EB535631B81769100094E65 /* Frameworks */,
+				7EB535641B81769100094E65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EB535681B81769100094E65 /* PBXTargetDependency */,
+			);
+			name = HRPlacePickerTests;
+			productName = HRPlacePickerTests;
+			productReference = 7EB535661B81769100094E65 /* HRPlacePickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EB535451B81769100094E65 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = ZhangHeng;
+				TargetAttributes = {
+					7EB5354C1B81769100094E65 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					7EB535651B81769100094E65 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 7EB5354C1B81769100094E65;
+					};
+				};
+			};
+			buildConfigurationList = 7EB535481B81769100094E65 /* Build configuration list for PBXProject "HRPlacePicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7EB535441B81769100094E65;
+			productRefGroup = 7EB5354E1B81769100094E65 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EB5354C1B81769100094E65 /* HRPlacePicker */,
+				7EB535651B81769100094E65 /* HRPlacePickerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EB5354B1B81769100094E65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5359A1B81A50D00094E65 /* location.db in Resources */,
+				7EB5355C1B81769100094E65 /* Main.storyboard in Resources */,
+				7EB535611B81769100094E65 /* LaunchScreen.xib in Resources */,
+				7EB5355E1B81769100094E65 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB535641B81769100094E65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7EB535491B81769100094E65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB535591B81769100094E65 /* ViewController.m in Sources */,
+				7EB535881B8177F800094E65 /* FMDatabaseQueue.m in Sources */,
+				7EB535961B817ABB00094E65 /* HRLocationItem.m in Sources */,
+				7EB535561B81769100094E65 /* AppDelegate.m in Sources */,
+				7EB535781B8176B100094E65 /* HRLocationPicker.m in Sources */,
+				7EB535851B8177F800094E65 /* FMDatabase.m in Sources */,
+				7EB535871B8177F800094E65 /* FMDatabasePool.m in Sources */,
+				7EB535901B81781B00094E65 /* FMTokenizers.m in Sources */,
+				7EB535891B8177F800094E65 /* FMResultSet.m in Sources */,
+				7EB535531B81769100094E65 /* main.m in Sources */,
+				7EB535861B8177F800094E65 /* FMDatabaseAdditions.m in Sources */,
+				7EB5358F1B81781B00094E65 /* FMDatabase+FTS3.m in Sources */,
+				7EB535931B81782600094E65 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB535621B81769100094E65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5356D1B81769100094E65 /* HRPlacePickerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7EB535681B81769100094E65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EB5354C1B81769100094E65 /* HRPlacePicker */;
+			targetProxy = 7EB535671B81769100094E65 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7EB5355A1B81769100094E65 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EB5355B1B81769100094E65 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7EB5355F1B81769100094E65 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EB535601B81769100094E65 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7EB5356E1B81769100094E65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7EB5356F1B81769100094E65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7EB535711B81769100094E65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HRPlacePicker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7EB535721B81769100094E65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HRPlacePicker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7EB535741B81769100094E65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HRPlacePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRPlacePicker.app/HRPlacePicker";
+			};
+			name = Debug;
+		};
+		7EB535751B81769100094E65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HRPlacePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRPlacePicker.app/HRPlacePicker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EB535481B81769100094E65 /* Build configuration list for PBXProject "HRPlacePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EB5356E1B81769100094E65 /* Debug */,
+				7EB5356F1B81769100094E65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EB535701B81769100094E65 /* Build configuration list for PBXNativeTarget "HRPlacePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EB535711B81769100094E65 /* Debug */,
+				7EB535721B81769100094E65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7EB535731B81769100094E65 /* Build configuration list for PBXNativeTarget "HRPlacePickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EB535741B81769100094E65 /* Debug */,
+				7EB535751B81769100094E65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EB535451B81769100094E65 /* Project object */;
+}
