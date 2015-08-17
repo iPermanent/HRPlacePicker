@@ -31,6 +31,8 @@
 
 #pragma mark- picker Delegate
 -(void)didSelectLocation:(NSString *)placeString{
+    
+    
     NSLog(@"你选择的地址是:%@",placeString);
 }
 
