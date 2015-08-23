@@ -75,10 +75,16 @@
         NSInteger   disIndex    =   [picker selectedRowInComponent:2];
         
         HRLocationItem  *province = [provinceArray objectAtIndex:proIndex];
-        HRLocationItem  *city   =   [citiesArray objectAtIndex:cityIndex];
-        HRLocationItem  *district   =   [districArray objectAtIndex:disIndex];
+        NSString *address = province.locationName;
+        if(citiesArray.count > 0){
+            HRLocationItem  *city   =   [citiesArray objectAtIndex:cityIndex];
+            address = [address stringByAppendingString:city.locationName];
+            if(districArray.count > 0){
+                HRLocationItem  *district   =   [districArray objectAtIndex:disIndex];
+                address = [address stringByAppendingString:district.locationName];
+            }
+        }
         
-        NSString *address = [[province.locationName stringByAppendingString:city.locationName] stringByAppendingString:district.locationName];
         [_delegate didSelectLocation:address];
     }
 }
