@@ -10,7 +10,9 @@
 #import "HRLocationPicker.h"
 
 @interface ViewController ()<HRLocationPicker>
-
+{
+    HRLocationPicker *picker;
+}
 @end
 
 @implementation ViewController
@@ -19,9 +21,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    HRLocationPicker *picker = [[HRLocationPicker alloc] init];
+    picker = [[HRLocationPicker alloc] init];
     [self.view addSubview:picker];
     picker.delegate = self;
+    
+    UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPicker:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)showPicker:(UITapGestureRecognizer *)tap{
+    if(![self.view.subviews containsObject:picker]){
+        [self.view addSubview:picker];
+        picker.delegate = self;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
