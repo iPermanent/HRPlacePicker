@@ -12,5 +12,6 @@
 @property(nonatomic,assign)int      locationId;
 @property(nonatomic,assign)int      fatherId;
 @property(nonatomic,strong)NSString *locationName;
+@property(nonatomic,strong)NSMutableArray   *subPlaces;
 
 @end

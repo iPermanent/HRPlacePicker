@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    picker = [[HRLocationPicker alloc] init];
+    picker = [[HRLocationPicker alloc] initWithLoadType:PlaceLoadOnce];
     [self.view addSubview:picker];
     picker.delegate = self;
     

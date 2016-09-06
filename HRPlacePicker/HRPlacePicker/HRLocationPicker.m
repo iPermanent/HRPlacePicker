@@ -20,10 +20,23 @@
     NSMutableArray  *citiesArray;
     NSMutableArray  *districArray;
 }
+@property(nonatomic,assign)PlaceLoadType loadType;
 @end
 
 
 @implementation HRLocationPicker
+
+-(id)initWithLoadType:(PlaceLoadType)loadType{
+    self = [super init];
+    if(self){
+        _loadType = loadType;
+        [self setFrame:CGRectMake(0, screen_height - screen_width, screen_width, screen_width)];
+        self.backgroundColor = [UIColor lightGrayColor];
+        [self configPicker];
+    }
+    
+    return self;
+}
 
 -(id)init{
     self = [super init];
@@ -41,7 +54,11 @@
     citiesArray     =   [NSMutableArray new];
     districArray    =   [NSMutableArray new];
     
-    [self configData];
+    if(_loadType == PlaceLoadOnce){
+        [self configDataOnlyOnce];
+    }else{
+        [self configData];
+    }
     
     picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 60, self.frame.size.width, self.frame.size.height - 60)];
     picker.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
@@ -76,19 +93,87 @@
         
         HRLocationItem  *province = [provinceArray objectAtIndex:proIndex];
         NSString *address = province.locationName;
-        if(citiesArray.count > 0){
-            HRLocationItem  *city   =   [citiesArray objectAtIndex:cityIndex];
+        
+        if(_loadType == PlaceLoadOnce){
+            HRLocationItem *city = [[province subPlaces] objectAtIndex:cityIndex];
+            HRLocationItem *district = city.subPlaces[disIndex];
+            
             address = [address stringByAppendingString:city.locationName];
-            if(districArray.count > 0){
-                HRLocationItem  *district   =   [districArray objectAtIndex:disIndex];
-                address = [address stringByAppendingString:district.locationName];
+            address = [address stringByAppendingString:district.locationName];
+        }else{
+            if(citiesArray.count > 0){
+                HRLocationItem  *city   =   [citiesArray objectAtIndex:cityIndex];
+                address = [address stringByAppendingString:city.locationName];
+                if(districArray.count > 0){
+                    HRLocationItem  *district   =   [districArray objectAtIndex:disIndex];
+                    address = [address stringByAppendingString:district.locationName];
+                }
             }
         }
+        
         
         [_delegate didSelectLocation:address];
     }
 }
 
+-(void)configDataOnlyOnce{
+    FMDatabase *db = [self dataBase];
+    [db open];
+    FMResultSet *rs = [db executeQuery:@"select * from S_Province"];
+    //省
+    while (rs.next) {
+        HRLocationItem *item = [HRLocationItem new];
+        item.locationName   =   [rs stringForColumn:@"ProvinceName"];
+        item.locationId     =   [rs intForColumn:@"ProvinceID"];
+        
+        [provinceArray addObject:item];
+    }
+    
+    FMResultSet *cityRs = [db executeQuery:@"select * from S_City"];
+    NSMutableArray  *tmpCityArries = @[].mutableCopy;
+    //城市
+    while (cityRs.next) {
+        HRLocationItem *cityItem = [HRLocationItem new];
+        cityItem.locationName   =   [cityRs stringForColumn:@"CityName"];
+        cityItem.locationId     =   [cityRs intForColumn:@"CityID"];
+        cityItem.fatherId       =   [cityRs intForColumn:@"ProvinceID"];
+        [tmpCityArries addObject:cityItem];
+    }
+    
+    //区数据
+    FMResultSet *districtRs = [db executeQuery:@"select * from S_District"];
+    NSMutableArray *tmpDistrictArries = @[].mutableCopy;
+    while (districtRs.next) {
+        HRLocationItem *districtItem = [HRLocationItem new];
+        districtItem.locationName   =   [districtRs stringForColumn:@"DistrictName"];
+        districtItem.locationId     =   [districtRs intForColumn:@"DistrictID"];
+        districtItem.fatherId       =   [districtRs intForColumn:@"CityID"];
+        [tmpDistrictArries addObject:districtItem];
+    }
+    
+    [db close];
+    
+    [self createLocationRelationByCities:tmpCityArries andDis:tmpDistrictArries];
+}
+
+-(void)createLocationRelationByCities:(NSArray *)cities andDis:(NSArray *)districts{
+    for(HRLocationItem *provinceItem in provinceArray){
+        provinceItem.subPlaces = @[].mutableCopy;
+        for(HRLocationItem *cityItem in cities){
+            cityItem.subPlaces = @[].mutableCopy;
+            for(HRLocationItem *disItem in districts){
+                if(disItem.fatherId == cityItem.locationId){
+                    [cityItem.subPlaces addObject:disItem];
+                }
+            }
+            if(cityItem.fatherId == provinceItem.locationId){
+                [provinceItem.subPlaces addObject:cityItem];
+            }
+        }
+    }
+}
+
+//动态查询时调用方法
 -(void)configData{
     FMDatabase *db = [self dataBase];
     [db open];
@@ -171,10 +256,27 @@
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     if(component == 0)
         return provinceArray.count;
-    if(component == 1)
-        return citiesArray.count;
-    else
-        return districArray.count;
+    if(component == 1){
+        if(_loadType == PlaceLoadOnce){
+            NSInteger selectRow = [pickerView selectedRowInComponent:0];
+            HRLocationItem *item = provinceArray[selectRow];
+            return item.subPlaces.count;
+        }else{
+            return citiesArray.count;
+        }
+    }
+    else{
+        if(_loadType == PlaceLoadOnce){
+            NSInteger selectProvice = [pickerView selectedRowInComponent:0];
+            NSInteger selectCity = [pickerView selectedRowInComponent:1];
+            
+            HRLocationItem *item = provinceArray[selectProvice];
+            HRLocationItem *cityItem = item.subPlaces[selectCity];
+            
+            return cityItem.subPlaces.count;
+        }else
+            return districArray.count;
+    }
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -208,10 +310,24 @@
             currentItem = [provinceArray objectAtIndex:row];
             break;
         case 1:
-            currentItem = [citiesArray objectAtIndex:row];
+            if(_loadType == PlaceLoadDynamic){
+                currentItem = [citiesArray objectAtIndex:row];
+            }else{
+                NSInteger selectRow = [pickerView selectedRowInComponent:0];
+                HRLocationItem *provinceItem = [provinceArray objectAtIndex:selectRow];
+                currentItem = provinceItem.subPlaces[row];
+            }
             break;
         case 2:
-            currentItem = [districArray objectAtIndex:row];
+            if(_loadType == PlaceLoadDynamic){
+                currentItem = [districArray objectAtIndex:row];
+            }else{
+                NSInteger   selectProvince = [pickerView selectedRowInComponent:0];
+                NSInteger   selectCity = [pickerView selectedRowInComponent:1];
+                HRLocationItem  *provinceItem = [provinceArray objectAtIndex:selectProvince];
+                HRLocationItem  *cityItem = provinceItem.subPlaces[selectCity];
+                currentItem = cityItem.subPlaces[row];
+            }
             break;
         default:
             break;
@@ -224,19 +340,24 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     switch (component) {
         case 0:{
-            HRLocationItem *item = [provinceArray objectAtIndex:row];
-            [self getCityDataByProvinceId:item.locationId];
-            
-            HRLocationItem *cityItem = [citiesArray firstObject];
-            [self getDistrictDataByCityId:cityItem.locationId];
+            if(_loadType == PlaceLoadDynamic){
+                HRLocationItem *item = [provinceArray objectAtIndex:row];
+                [self getCityDataByProvinceId:item.locationId];
+                
+                HRLocationItem *cityItem = [citiesArray firstObject];
+                [self getDistrictDataByCityId:cityItem.locationId];
+            }
             
             [pickerView reloadComponent:1];
             [pickerView reloadComponent:2];
         }
             break;
         case 1:{
-            HRLocationItem *item = [citiesArray objectAtIndex:row];
-            [self getDistrictDataByCityId:item.locationId];
+            if(_loadType == PlaceLoadDynamic){
+                HRLocationItem *item = [citiesArray objectAtIndex:row];
+                [self getDistrictDataByCityId:item.locationId];
+            }
+            
             [pickerView reloadComponent:2];
         }
             break;
